@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieList component renders a MovieList by default 1`] = `"No results."`;
+
+exports[`MovieList component renders the MovieList given props 1`] = `"No results."`;

@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component renders a App by default 1`] = `
+<Fragment>
+  <div />
+  <Switch>
+    <Route
+      exact={true}
+      path="/"
+      render={[Function]}
+    />
+    <PublicOnlyRoute
+      component={[Function]}
+      path="/login"
+    />
+    <PublicOnlyRoute
+      component={[Function]}
+      path="/register"
+    />
+    <Route
+      component={[Function]}
+      path="/movies/search"
+    />
+    <Route
+      component={[Function]}
+      exact={true}
+      path="/movies/:id"
+    />
+    <PrivateRoute
+      component={[Function]}
+      exact={true}
+      path="/movies/:id/add-review"
+    />
+    <PrivateRoute
+      component={[Function]}
+      exact={true}
+      path="/reviews/:id/"
+    />
+    <PrivateRoute
+      component={[Function]}
+      exact={true}
+      path="/reviews"
+    />
+    <PrivateRoute
+      component={[Function]}
+      exact={true}
+      path="/movies/:movie_id/watch"
+    />
+    <PrivateRoute
+      component={[Function]}
+      exact={true}
+      path="/watchlist/:movie_id/"
+    />
+    <PrivateRoute
+      component={[Function]}
+      path="/watchlist"
+    />
+    <Route
+      component={[Function]}
+    />
+  </Switch>
+  <footer>
+    <BackToTop
+      goBackToTop={[Function]}
+      showBackToTop={false}
+    />
+    © 2019 Built by
+     
+    <a
+      href="http://www.asktami.com"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Tami Williams
+    </a>
+     
+    | Hero Photo by Denise Jans on Unsplash
+  </footer>
+</Fragment>
+`;

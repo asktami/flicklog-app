@@ -1,0 +1,97 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MovieListItem component renders a MovieListItem by default 1`] = `
+<li>
+  <figure>
+    <img
+      alt="Alien"
+      className="figure-image"
+      src="http://image.tmdb.org/t/p/w300vfrQk5IPloGg1v9Rzbh2Eg3VGyM.jpg"
+    />
+    <figcaption>
+      <Link
+        to="/movies/348"
+      >
+        Alien
+      </Link>
+      <br />
+      1979-05-25
+      <div
+        className="overlay"
+      >
+        <p
+          className="overlay-text"
+        >
+          <FontAwesomeIcon
+            icon={
+              Array [
+                "fas",
+                "star",
+              ]
+            }
+            size="1x"
+          />
+           
+          81
+          %
+           
+          <span
+            className="votes"
+          >
+            5694
+             votes
+          </span>
+        </p>
+      </div>
+    </figcaption>
+  </figure>
+</li>
+`;
+
+exports[`MovieListItem component renders the MovieListItem given props 1`] = `
+<li>
+  <figure>
+    <img
+      alt="Alien"
+      className="figure-image"
+      src="http://image.tmdb.org/t/p/w300vfrQk5IPloGg1v9Rzbh2Eg3VGyM.jpg"
+    />
+    <figcaption>
+      <Link
+        to="/movies/348"
+      >
+        Alien
+      </Link>
+      <br />
+      1979-05-25
+      <div
+        className="overlay"
+      >
+        <p
+          className="overlay-text"
+        >
+          <FontAwesomeIcon
+            icon={
+              Array [
+                "fas",
+                "star",
+              ]
+            }
+            size="1x"
+          />
+           
+          81
+          %
+           
+          <span
+            className="votes"
+          >
+            5694
+             votes
+          </span>
+        </p>
+      </div>
+    </figcaption>
+  </figure>
+</li>
+`;

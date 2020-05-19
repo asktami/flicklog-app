@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination component renders a Pagination by default 1`] = `
+<section>
+  <ul
+    className="pagination"
+  />
+</section>
+`;

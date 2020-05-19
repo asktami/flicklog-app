@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BackLink component renders a BackLink by default 1`] = `
+<Fragment>
+  <button
+    aria-expanded="false"
+    aria-label="back-button"
+    className="btn-as-link"
+    onClick={[Function]}
+  />
+  <br />
+  <br />
+</Fragment>
+`;

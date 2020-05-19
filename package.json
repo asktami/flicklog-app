@@ -1,0 +1,56 @@
+{
+	"name": "flicklog-app",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"start": "react-scripts start",
+		"prebuild": "CI=true react-scripts test --colors",
+		"build": "react-scripts build",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"predeploy": "npm run build",
+		"deploy": "now ./build",
+		"postdeploy": "now --prod"
+	},
+	"dependencies": {
+		"@fortawesome/fontawesome-svg-core": "^1.2.28",
+		"@fortawesome/free-brands-svg-icons": "^5.13.0",
+		"@fortawesome/free-regular-svg-icons": "^5.13.0",
+		"@fortawesome/free-solid-svg-icons": "^5.13.0",
+		"@fortawesome/react-fontawesome": "^0.1.9",
+		"bcryptjs": "^2.4.3",
+		"classnames": "^2.2.6",
+		"jsonwebtoken": "^8.5.1",
+		"jwt-decode": "^2.2.0",
+		"prop-types": "^15.7.2",
+		"query-string": "^6.12.1",
+		"react": "^16.13.1",
+		"react-dom": "^16.13.1",
+		"react-loader-spinner": "^3.1.14",
+		"react-promise-tracker": "^2.1.0",
+		"react-router": "^5.2.0",
+		"react-router-dom": "^5.2.0",
+		"react-scripts": "^3.4.1"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": [
+		">0.2%",
+		"not dead",
+		"not ie <= 11",
+		"not op_mini all"
+	],
+	"devDependencies": {
+		"@fortawesome/fontawesome-free": "^5.13.0",
+		"enzyme": "^3.11.0",
+		"enzyme-adapter-react-16": "^1.15.2",
+		"enzyme-to-json": "^3.4.4",
+		"react-test-renderer": "^16.13.1",
+		"typescript": "^3.9.2"
+	},
+	"contributors": [
+		"Tami Williams <tami@asktami.com>"
+	],
+	"license": "MIT"
+}

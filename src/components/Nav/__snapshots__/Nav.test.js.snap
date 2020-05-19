@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nav component renders a Nav by default 1`] = `
+<Fragment>
+  <nav>
+    <span
+      className="nav-toggle"
+      id="js-nav-toggle"
+      onClick={[Function]}
+    >
+      ☰
+    </span>
+    <h1
+      className="logo"
+    >
+      <a
+        href="/"
+      >
+        FlickLog
+      </a>
+    </h1>
+    <ul
+      className="nav-menu"
+      id="js-nav-menu"
+    >
+      <li>
+        <Link
+          to="/login"
+        >
+          Log in
+        </Link>
+      </li>
+      <li>
+        <Link
+          to="/register"
+        >
+          Register
+        </Link>
+      </li>
+    </ul>
+  </nav>
+</Fragment>
+`;

@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BackToTop component renders a BackToTop by default 1`] = `
+<button
+  className="btn back-to-top"
+  id="back-to-top"
+  style={
+    Object {
+      "display": "none",
+    }
+  }
+>
+  back to top
+  <br />
+  <FontAwesomeIcon
+    icon={
+      Array [
+        "fas",
+        "chevron-circle-up",
+      ]
+    }
+    size="3x"
+  />
+   
+</button>
+`;
