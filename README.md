@@ -11,7 +11,7 @@
 
 - uses [TheMovieDb.org API](http://www.themoviedb.org/)
 
-- anyone going to the home page will see a list of all movies
+- anyone going to the home page will see 3 horizontal movie lists: now playing, coming soon, and popular
 
 - anyone can search for a movie
 
