@@ -19,6 +19,18 @@ exports[`Nav component renders a Nav by default 1`] = `
         FlickLog
       </a>
     </h1>
+    <a
+      className="clear-link"
+      href="http://www.themoviedb.org"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <img
+        alt="themoviedb.org"
+        src="logo.svg"
+        width="25%"
+      />
+    </a>
     <ul
       className="nav-menu"
       id="js-nav-menu"

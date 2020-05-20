@@ -34,26 +34,21 @@ exports[`App component renders a App by default 1`] = `
     <PrivateRoute
       component={[Function]}
       exact={true}
+      path="/movies/:id/add-to-watchlist"
+    />
+    <PrivateRoute
+      component={[Function]}
+      exact={true}
       path="/reviews/:id/"
+    />
+    <PrivateRoute
+      component={[Function]}
+      path="/watchlist"
     />
     <PrivateRoute
       component={[Function]}
       exact={true}
       path="/reviews"
-    />
-    <PrivateRoute
-      component={[Function]}
-      exact={true}
-      path="/movies/:movie_id/watch"
-    />
-    <PrivateRoute
-      component={[Function]}
-      exact={true}
-      path="/watchlist/:movie_id/"
-    />
-    <PrivateRoute
-      component={[Function]}
-      path="/watchlist"
     />
     <Route
       component={[Function]}

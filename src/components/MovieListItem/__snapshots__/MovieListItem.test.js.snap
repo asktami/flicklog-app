@@ -15,7 +15,7 @@ exports[`MovieListItem component renders a MovieListItem by default 1`] = `
         Alien
       </Link>
       <br />
-      1979-05-25
+      May 25, 1979
       <div
         className="overlay"
       >
@@ -63,7 +63,7 @@ exports[`MovieListItem component renders the MovieListItem given props 1`] = `
         Alien
       </Link>
       <br />
-      1979-05-25
+      May 25, 1979
       <div
         className="overlay"
       >
