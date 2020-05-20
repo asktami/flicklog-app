@@ -32,9 +32,10 @@ export default class MoviePage extends Component {
 		console.log('------------ 3. MOVIEPAGE componentDidMount has id = ', id);
 
 		MovieApiService.getMovieById(id)
-			.then(this.context.setMovie)
 			.then((movie) => {
 				movie.user_id = this.context.loginUserId;
+
+				this.context.setMovie(movie);
 
 				// need to save movie.videos.results separately because when don't is not seen as an array of objects when I try to extract from context's movie object
 				this.context.setVideos(movie.videos.results);
@@ -52,6 +53,7 @@ export default class MoviePage extends Component {
 
 	render() {
 		const { loginUserId } = this.context;
+
 		return (
 			<>
 				<header>

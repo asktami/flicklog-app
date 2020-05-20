@@ -46,7 +46,6 @@ export default class MoviePageItem extends Component {
 
 	renderMovie() {
 		const { movie, videos, loginUserId } = this.context;
-		const { addToWatchList, removeFromWatchList } = this.props;
 
 		console.log('------------ 4. MoviePageItem renderMovie');
 
@@ -114,17 +113,6 @@ export default class MoviePageItem extends Component {
 						</div>
 
 						{videos.length > 0 && this.renderYouTubes()}
-
-						{/*
-						// TBD
-						 <h3>DEBUG</h3>
-						<p>
-							movie.id = {movie.id}
-							<br />
-							loginUserId = {loginUserId}
-							<br />
-							movie.user_id = {movie.user_id}
-						</p> */}
 					</div>
 				</div>
 
