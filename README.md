@@ -7,9 +7,9 @@
 ## Description
 
 - a React Fullstack App
-- uses the "container patern": class components for logic, fetching and managing state, functional components for display
+- uses the "container patern": class components for logic; fetching and managing state, functional components for display
 
-- uses [http://www.themoviedb.org/](TheMovieDb.org API )
+- uses [TheMovieDb.org API](http://www.themoviedb.org/)
 
 - anyone going to the home page will see a list of all movies
 
