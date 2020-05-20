@@ -690,7 +690,7 @@ CARDS
 }
 
 .card img {
-	width: 90%;
+	width: auto;
 }
 
 .card-body {
