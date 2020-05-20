@@ -112,7 +112,7 @@ export default class App extends Component {
 	scrollToRef = (el) => {
 		window.scrollTo({
 			top: el.current.offsetTop,
-			behavior: 'instant',
+			behavior: 'smooth',
 		});
 	};
 
