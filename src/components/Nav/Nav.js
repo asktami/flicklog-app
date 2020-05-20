@@ -36,7 +36,7 @@ export default class Nav extends Component {
 					&#9776;
 				</span>
 				<h1 className="logo">
-					<a href="http://www.themoviedb.org">FlickLog</a>
+					<a href="/">FlickLog</a>
 				</h1>
 				<a
 					className="clear-link"
