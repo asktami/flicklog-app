@@ -6,25 +6,26 @@
 
 ## Description
 
-NOTE: used class components when needed to handle state, otherwise used functional components.
-
 - a React Fullstack App
+- uses the "container patern": class components for logic, fetching and managing state, functional components for display
 
-- uses the FileMaker DevCon 2019 movies list (exported from FMDevToGo from [https://www.filemaker.com/](https://www.filemaker.com/))
+- uses [http://www.themoviedb.org/](TheMovieDb.org API )
 
 - anyone going to the home page will see a list of all movies
 
-- anyone can filter the movie list by day or track
+- anyone can search for a movie
+
+- anyone can see movie details, including reviews
 
 - anyone can register and login
 
-- after logging in, you can click on a movie to add reviews
+- after logging in, you can click on a movie to add a review
 
-- after logging in, you can click on a star to add a movie to / remove a movie from your watchlist
+- after logging in, you can add a movie to / remove a movie from your watchlist
 
-- after logging in, you can see your watchlist, i.e. list of movies you plan on attending
+- after logging in, you can see your watchlist, i.e. list of movies you want to see
 
-- after logging in, you can filter your watchlist by day or track
+- after logging in, you can see your reviewlist, i.e. list of movies you added reviews to
 
 Works with [https://github.com/asktami/flicklog-api](https://github.com/asktami/flicklog-api).
 
