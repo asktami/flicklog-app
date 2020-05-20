@@ -34,25 +34,6 @@ export default class LoginForm extends Component {
 				// save loginUserId
 				this.context.setLoginUserId(res.user_id);
 
-				// //-----------------------------------
-				// // AND get watchlist and reviewlist
-
-				// trackPromise(
-				// 	Promise.all([
-				// 		MovieApiService.getWatchList(),
-				// 		MovieApiService.getReviewList(),
-				// 	])
-				// 		.then((results) => {
-				// 			const watchlist = results[0];
-				// 			const reviews = results[1];
-
-				// 			this.context.setWatchList(watchlist);
-				// 			this.context.setReviewList(reviews);
-				// 		})
-				// 		.catch(this.context.setError)
-				// );
-				// //-----------------------------------
-
 				//	TokenService.saveAuthToken(res.authToken);
 				this.props.onLoginSuccess();
 			})

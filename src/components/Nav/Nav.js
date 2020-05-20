@@ -5,7 +5,7 @@ import AppContext from '../../contexts/AppContext';
 import TokenService from '../../services/token-service';
 import IdleService from '../../services/idle-service';
 
-import '../../index.css';
+import logo from '../../img/logo.svg';
 
 export default class Nav extends Component {
 	static contextType = AppContext;
@@ -35,10 +35,17 @@ export default class Nav extends Component {
 				>
 					&#9776;
 				</span>
-
 				<h1 className="logo">
-					<a href="/">FlickLog</a>
+					<a href="http://www.themoviedb.org">FlickLog</a>
 				</h1>
+				<a
+					className="clear-link"
+					href="http://www.themoviedb.org"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<img src={logo} width="25%" alt="themoviedb.org" />
+				</a>
 
 				<ul id="js-nav-menu" className="nav-menu">
 					<li>
@@ -72,6 +79,14 @@ export default class Nav extends Component {
 				<h1 className="logo">
 					<a href="/">FlickLog</a>
 				</h1>
+				<a
+					className="clear-link"
+					href="http://www.themoviedb.org"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<img src={logo} width="25%" alt="themoviedb.org" />
+				</a>
 
 				<ul id="js-nav-menu" className="nav-menu">
 					<li>

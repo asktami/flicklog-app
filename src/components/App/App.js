@@ -153,7 +153,7 @@ export default class App extends Component {
 				)}
 
 				{/*
-				IF I had a component here that was NOT wrapped in a route and I needed to be able to access location / match / history props then INSIDE that component I would add:
+				IF have a component that is NOT wrapped in a route and I need to be able to access location / match / history props then INSIDE that component add:
 					import { withRouter } from 'react-router-dom';
 						AND
 					export default withRouter(ComponentName)

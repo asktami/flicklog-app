@@ -170,8 +170,10 @@ footer {
 	font-size: 18px;
 	font-weight: 700;
 	background-color: #330000;
-	border-bottom: 2px solid #330000;
+	border-bottom: 10px solid #330000;
 	width: 100%;
+	margin: 0;
+	padding: 0;
 	/* If you want the navigation bar to stick on top
   position: sticky;
   top: 0;
@@ -214,6 +216,18 @@ footer a:focus {
 	border-radius: 4px;
 }
 
+nav a.clear-link,
+nav a.clear-link:hover,
+nav a.clear-link:focus {
+	background: none;
+	padding: 0 0 20px 20px;
+	margin: 0;
+}
+
+a.clear-link img {
+	float: left;
+}
+
 .nav-toggle {
 	position: absolute;
 	top: 35px;
@@ -231,8 +245,6 @@ footer a:focus {
 nav ul {
 	display: none;
 	list-style: none;
-	padding: 0;
-	margin: 0;
 }
 
 nav li {
@@ -271,6 +283,14 @@ MEDIA QUERIES
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
+	}
+
+	nav a.clear-link,
+	nav a.clear-link:hover,
+	nav a.clear-link:focus {
+		background: none;
+		padding: 0 0 0 20px;
+		margin: 0;
 	}
 
 	nav ul {
