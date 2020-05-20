@@ -259,7 +259,7 @@ const MovieApiService = {
 	},
 
 	addWatchListItem(
-		id,
+		movie_id,
 		poster_path,
 		backdrop_path,
 		title,
@@ -273,7 +273,7 @@ const MovieApiService = {
 		console.log(
 			'----- INSIDE POST watchlist params =  ',
 			JSON.stringify(
-				id,
+				movie_id,
 				poster_path,
 				backdrop_path,
 				title,
@@ -287,14 +287,14 @@ const MovieApiService = {
 		// -----------
 
 		// protected endpoint
-		return fetch(`${config.API_ENDPOINT}/watchlist/${id}`, {
+		return fetch(`${config.API_ENDPOINT}/watchlist/${movie_id}`, {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
 				authorization: `bearer ${TokenService.getAuthToken()}`,
 			},
 			body: JSON.stringify({
-				id,
+				movie_id,
 				poster_path,
 				backdrop_path,
 				title,
