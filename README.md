@@ -2,15 +2,23 @@
 
 [View Live](https://flicklog-app.now.sh/)
 
+---
+
 ## Homepage
 
 ![Landing Page](https://github.com/asktami/flicklog-app/blob/master/flicklog-landing.png)
+
+---
 
 ## Movie Detail Page
 
 ![Movie Details](https://github.com/asktami/flicklog-app/blob/master/flicklog-movieDetail.png)
 
+---
+
 ## Watchlist
+
+---
 
 ![Watchlist](https://github.com/asktami/flicklog-app/blob/master/flicklog-watchlist.png)
 
