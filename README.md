@@ -27,7 +27,7 @@
 - a React Fullstack App
 - uses the "container pattern": class components for logic, fetching and managing state; functional components for display
 
-- uses [TheMovieDb.org API](http://www.themoviedb.org/)
+- uses [TheMovieDb.org API](http://www.themoviedb.org/) and [https://github.com/asktami/flicklog-api](https://github.com/asktami/flicklog-api) - a Node Express server app with CRUD endpoints that get data from a PostgreSQL datasource
 
 - anyone going to the home page will see 3 horizontal movie lists: now playing, coming soon, and popular
 
@@ -44,8 +44,6 @@
 - after logging in, you can see your watchlist, i.e. list of movies you want to see
 
 - after logging in, you can see your reviewlist, i.e. list of movies you added reviews to
-
-Works with [https://github.com/asktami/flicklog-api](https://github.com/asktami/flicklog-api).
 
 ## Built With
 
