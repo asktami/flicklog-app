@@ -1,7 +1,6 @@
 {
 	"version": 2,
-	"alias": "asktami-flicklog-app",
-	"name": "flicklog-app",
+	"builds": [{ "src": "*.js", "use": "@now/node" }],
 	"routes": [
 		{
 			"src": "^/static/(.*)",
