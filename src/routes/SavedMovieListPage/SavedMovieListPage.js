@@ -31,6 +31,8 @@ export default class SavedMovieList extends Component {
 				MovieApiService.getReviewList(),
 			])
 				.then((results) => {
+					this.setState({ isLoading: true });
+
 					const watchlist = results[0];
 					const reviews = results[1];
 
@@ -40,23 +42,6 @@ export default class SavedMovieList extends Component {
 				.catch(this.context.setError)
 		);
 		//-----------------------------------
-	}
-
-	renderLoading() {
-		let pageName;
-
-		if (this.props.location.pathname === '/watchlist') {
-			pageName = 'Watchlist';
-		} else {
-			pageName = 'Reviews';
-		}
-
-		return (
-			<>
-				<h2></h2>
-				<div className="center">Loading ...</div>
-			</>
-		);
 	}
 
 	renderMovies() {
@@ -109,9 +94,7 @@ export default class SavedMovieList extends Component {
 				</header>
 				<main>
 					<section>
-						{this.state.isLoading ? (
-							this.renderLoading()
-						) : error ? (
+						{error ? (
 							<p className="error">
 								There was an error, try again.
 								<br />
@@ -119,6 +102,13 @@ export default class SavedMovieList extends Component {
 									? error.message
 									: JSON.parse(JSON.stringify(error))}
 							</p>
+						) : null}
+						{!this.state.isLoading ? (
+							<div className="center">
+								Loading ...
+								<br />
+								<br />
+							</div>
 						) : (
 							this.renderMovies()
 						)}
