@@ -103,7 +103,7 @@ export default class MoviePageItem extends Component {
 								</>
 							)}
 						</div>
-						<div>
+						<div className="card-body-buttons">
 							<WatchListButton {...movie} /> &nbsp;
 							{loginUserId === '' ? (
 								<Link to={`/movies/${movie.id}/add-review`} className="btn">

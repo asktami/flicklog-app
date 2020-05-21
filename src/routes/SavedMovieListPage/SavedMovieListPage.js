@@ -16,8 +16,11 @@ import MovieList from '../../components/MovieList/MovieList';
 export default class SavedMovieList extends Component {
 	static contextType = AppContext;
 
+	state = { isLoading: true };
+
 	componentDidMount() {
 		this.context.clearError();
+		this.setState({ isLoading: false });
 
 		//-----------------------------------
 		// get watchlist and reviewlist
@@ -37,6 +40,23 @@ export default class SavedMovieList extends Component {
 				.catch(this.context.setError)
 		);
 		//-----------------------------------
+	}
+
+	renderLoading() {
+		let pageName;
+
+		if (this.props.location.pathname === '/watchlist') {
+			pageName = 'Watchlist';
+		} else {
+			pageName = 'Reviews';
+		}
+
+		return (
+			<>
+				<h2></h2>
+				<div className="center">Loading ...</div>
+			</>
+		);
 	}
 
 	renderMovies() {
@@ -88,13 +108,10 @@ export default class SavedMovieList extends Component {
 					<SearchForm />
 				</header>
 				<main>
-					{this.context.error && (
-						<p id="error" className="error">
-							{'Error: ' + this.context.error}
-						</p>
-					)}
 					<section>
-						{error ? (
+						{this.state.isLoading ? (
+							this.renderLoading()
+						) : error ? (
 							<p className="error">
 								There was an error, try again.
 								<br />
