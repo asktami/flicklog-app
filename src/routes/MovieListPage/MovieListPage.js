@@ -8,8 +8,6 @@ import Nav from '../../components/Nav/Nav';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import Pagination from '../../components/Pagination/Pagination';
 
-// using trackPromise so can use LoadingIndicator
-import { trackPromise } from 'react-promise-tracker';
 import LoadingIndicator from '../../components/LoadingIndicator/LoadingIndicator';
 
 import MovieList from '../../components/MovieList/MovieList';

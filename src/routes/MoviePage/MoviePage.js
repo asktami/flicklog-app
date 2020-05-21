@@ -6,7 +6,6 @@ import MovieApiService from '../../services/movie-api-service';
 import Nav from '../../components/Nav/Nav';
 
 import MoviePageItem from './MoviePageItem';
-import { textSpanIsEmpty } from 'typescript';
 
 export default class MoviePage extends Component {
 	static contextType = AppContext;

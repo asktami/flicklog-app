@@ -152,34 +152,6 @@ export default class App extends Component {
 					</p>
 				)}
 
-				{/*
-				IF have a component that is NOT wrapped in a route and I need to be able to access location / match / history props then INSIDE that component add:
-					import { withRouter } from 'react-router-dom';
-						AND
-					export default withRouter(ComponentName)
-
-				NOTE: using <Route automatically passes match, history and location props to components
-				AND
-				inside those components, get match, history and location via:
-
-				FOR CLASS COMPONENTS
-					this.props.match, this.props.history, this.props.location
-
-				FOR FUNCTIONAL COMPONENTS
-				import {
-					useParams,
-					useHistory,
-					useLocation,
-					useRouteMatch,
-					} from 'react-router-dom';
-
-				AND
-				let params = useParams();
-				let location = useLocation();
-				let history = useHistory();
-				let match = useRouteMatch('/');
-				*/}
-
 				<Switch>
 					<Route
 						exact

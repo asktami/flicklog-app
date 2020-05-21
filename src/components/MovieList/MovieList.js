@@ -10,7 +10,7 @@ const MovieList = (props) => {
 			let unique_movie_list = [];
 			return movies.map((movie, i) => {
 				// can have more than 1 review record per user per movie
-				// only for watchList or reviewList only show 1 instance of movie
+				// only for watchList and reviewList only show 1 instance of movie
 				// for movie search lists show whatever is found
 
 				if (

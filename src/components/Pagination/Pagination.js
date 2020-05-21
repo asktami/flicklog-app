@@ -19,42 +19,6 @@ const Pagination = ({
 
 	return (
 		<section>
-			{/* <ul>
-				{totalPages ? (
-					<li>
-						{currentPage !== 1 ? (
-							<button
-								onClick={() => handleChangePage(currentPage - 1)}
-								className="page-link"
-							>
-								«
-							</button>
-						) : (
-							'«'
-						)}
-					</li>
-				) : null}
-				&nbsp;&nbsp;&nbsp;Page&nbsp;&nbsp;
-				<span>{currentPage}</span>
-				&nbsp;&nbsp; of &nbsp;&nbsp;
-				<span>{totalPages}</span>
-				&nbsp;&nbsp;&nbsp;
-				{pageNumbers.length ? (
-					<li>
-						{currentPage !== pageNumbers.length ? (
-							<button
-								onClick={() => handleChangePage(currentPage + 1)}
-								className="page-link"
-							>
-								»
-							</button>
-						) : (
-							'»'
-						)}
-					</li>
-				) : null}
-			</ul> */}
-
 			<ul className="pagination">
 				{totalPages && currentPage !== 1 ? (
 					<li>

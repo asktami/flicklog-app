@@ -35,7 +35,7 @@ class SearchForm extends Component {
 		this.props.history.push(`/movies/search`);
 
 		// uncontrolled search input field
-		// to clear searchTerm from input after submit
+		// to clear searchTerm from input after submit:
 		// document.getElementById('searchTerm').value = '';
 	};
 

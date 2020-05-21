@@ -19,20 +19,9 @@ export default class WatchListButton extends Component {
 	// if stored watchList has this movie id then show the delete from watchlist button
 
 	addToWatchList = (props) => {
-		// add movie to watchlist
 		const movie = this.props;
 
-		console.log('--- Add Watchlist movie.title = ', movie.title);
-		console.log('--- Add Watchlist movie.id = ', movie.id);
-		console.log('--- Add Watchlist movie.poster_path = ', movie.poster_path);
-		console.log(
-			'--- Add Watchlist movie.backdrop_path = ',
-			movie.backdrop_path
-		);
-
-		// this.setState({ wasClicked: id });
-
-		// this.context.addWatchListItem(id);
+		this.setState({ wasClicked: true });
 
 		// change cursor
 		document.body.style.cursor = 'wait';
@@ -65,9 +54,7 @@ export default class WatchListButton extends Component {
 	};
 
 	removeFromWatchList = (id) => {
-		// remove movie from watchlist
-
-		// this.setState({ wasClicked: id });
+		this.setState({ wasClicked: true });
 
 		this.context.removeWatchListItem(id);
 
@@ -92,22 +79,12 @@ export default class WatchListButton extends Component {
 		const { loginUserId, watchList } = this.context;
 		const { id } = this.props;
 
-		console.log('------ WatchListButton watchlist = ', watchList);
-		console.log('------ WatchListButton id = ', id);
-
 		// find id in watchlist array of movie objects
 		let foundMovie = watchList.filter(
 			(obj) => parseInt(obj.id) === parseInt(id)
 		);
 
 		let hasMovie = foundMovie.length > 0 ? true : false;
-
-		console.log(
-			'------ WatchListButton found movie = ',
-			JSON.stringify(foundMovie)
-		);
-
-		console.log('------ WatchListButton hasMovie = ', hasMovie);
 
 		if (loginUserId === '') {
 			return (
@@ -122,7 +99,7 @@ export default class WatchListButton extends Component {
 				<div>
 					{hasMovie ? (
 						<>
-							{id === this.state.wasClicked ? (
+							{this.state.wasClicked ? (
 								<span className="processing">Removing ...</span>
 							) : (
 								<button
@@ -130,7 +107,7 @@ export default class WatchListButton extends Component {
 									aria-label="remove-movie-from-watchlist-button"
 									onClick={() => {
 										this.removeFromWatchList(id);
-										this.setState({ wasClicked: id });
+										this.setState({ wasClicked: false });
 									}}
 								>
 									<FontAwesomeIcon icon={['fas', 'times']} size="1x" /> Remove
@@ -141,15 +118,15 @@ export default class WatchListButton extends Component {
 					) : null}
 					{!hasMovie ? (
 						<>
-							{id === this.state.wasClicked ? (
-								<span className="processing">Processing ...</span>
+							{this.state.wasClicked ? (
+								<span className="processing">Adding ...</span>
 							) : (
 								<button
 									className="btn btn-as-link"
 									aria-label="add-movie-to-watchlist-button"
 									onClick={() => {
 										this.addToWatchList(props);
-										this.setState({ wasClicked: id });
+										this.setState({ wasClicked: false });
 									}}
 								>
 									<FontAwesomeIcon icon={['fas', 'check']} size="1x" /> Add to

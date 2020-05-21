@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import AppContext from '../../contexts/AppContext';
 
 import AuthApiService from '../../services/auth-api-service';
-import MovieApiService from '../../services/movie-api-service';
-
-// using trackPromise so can use LoadingIndicator
-import { trackPromise } from 'react-promise-tracker';
-import LoadingIndicator from '../../components/LoadingIndicator/LoadingIndicator';
 
 export default class LoginForm extends Component {
 	static contextType = AppContext;
@@ -31,7 +26,6 @@ export default class LoginForm extends Component {
 				username.value = '';
 				password.value = '';
 
-				// save loginUserId
 				this.context.setLoginUserId(res.user_id);
 
 				//	TokenService.saveAuthToken(res.authToken);

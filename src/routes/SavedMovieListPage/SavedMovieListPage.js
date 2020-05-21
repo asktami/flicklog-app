@@ -16,14 +16,11 @@ import MovieList from '../../components/MovieList/MovieList';
 export default class SavedMovieList extends Component {
 	static contextType = AppContext;
 
-	state = { isLoading: true };
+	state = { isLoading: undefined };
 
 	componentDidMount() {
 		this.context.clearError();
 		this.setState({ isLoading: false });
-
-		//-----------------------------------
-		// get watchlist and reviewlist
 
 		trackPromise(
 			Promise.all([
@@ -41,7 +38,6 @@ export default class SavedMovieList extends Component {
 				})
 				.catch(this.context.setError)
 		);
-		//-----------------------------------
 	}
 
 	renderMovies() {

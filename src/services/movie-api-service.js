@@ -18,8 +18,6 @@ const MovieApiService = {
 		);
 	},
 	getMovies(query, pageNumber) {
-		console.log('got to getMovies query = ', query);
-		console.log('got to getMovies pageNumber = ', pageNumber);
 		// unprotected endpoint
 		// will work even when not logged in
 		// pass AuthToken so can use loginUserId when logged in to join movies + watchlist records
@@ -50,8 +48,6 @@ const MovieApiService = {
 	getMovieById(movie_id) {
 		// unprotected endpoint
 		// will work even when logged in / not
-
-		console.log('MovieApiService got to getMovieById, id = -------', movie_id);
 
 		const url = `${config.EXTERNAL_ENDPOINT}/movie/${movie_id}?api_key=${config.API_KEY}&language=en-US&append_to_response=videos`;
 
@@ -128,8 +124,6 @@ const MovieApiService = {
 					: res.json();
 			});
 		} else {
-			console.log('got here - getMovieReviews, movie_id = ', movie_id);
-
 			return fetch(`${config.API_ENDPOINT}/movies/${movie_id}/reviews`, {
 				headers: {
 					'content-type': 'application/json',
@@ -246,7 +240,6 @@ const MovieApiService = {
 
 		// only getWatchList IF logged in
 		if (TokenService.getAuthToken()) {
-			console.log('------ GOT HERE getWatchlist');
 			return fetch(`${config.API_ENDPOINT}/watchlist`, {
 				headers: {
 					'content-type': 'application/json',
@@ -269,23 +262,6 @@ const MovieApiService = {
 		vote_average,
 		vote_count
 	) {
-		// -----------
-		console.log(
-			'----- INSIDE POST watchlist params =  ',
-			JSON.stringify(
-				movie_id,
-				poster_path,
-				backdrop_path,
-				title,
-				original_title,
-				release_date,
-				overview,
-				vote_average,
-				vote_count
-			)
-		);
-		// -----------
-
 		// protected endpoint
 		return fetch(`${config.API_ENDPOINT}/watchlist/${movie_id}`, {
 			method: 'POST',
@@ -314,7 +290,6 @@ const MovieApiService = {
 	},
 
 	deleteWatchListItem(movie_id) {
-		console.log('------- GOT TO deleteWatchListItem movie_id = ', movie_id);
 		// protected endpoint
 		return fetch(`${config.API_ENDPOINT}/watchlist/${movie_id}`, {
 			method: 'DELETE',
@@ -345,7 +320,6 @@ const MovieApiService = {
 
 		// only getReviews IF logged in
 		if (TokenService.getAuthToken()) {
-			console.log('------ GOT HERE getReviewlist');
 			return fetch(`${config.API_ENDPOINT}/reviews`, {
 				headers: {
 					'content-type': 'application/json',

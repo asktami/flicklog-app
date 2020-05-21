@@ -18,7 +18,7 @@ const LoadingIndicator = (props) => {
 					alignItems: 'center',
 				}}
 			>
-				<Loader type="Oval" color={'#F88C04'} height={100} width={100} />
+				<Loader type="Oval" color={'#ad232e'} height={100} width={100} />
 			</div>
 		)
 	);

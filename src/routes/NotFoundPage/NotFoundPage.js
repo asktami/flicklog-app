@@ -1,23 +1,10 @@
 import React from 'react';
-// TBD
-// import {
-// 	useParams,
-// 	useHistory,
-// 	useLocation,
-// 	useRouteMatch,
-// } from 'react-router-dom';
 
 import Nav from '../../components/Nav/Nav';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import BackLink from '../../components/BackLink/BackLink';
 
 const NotFoundPage = (props) => {
-	// TBD
-	// let params = useParams();
-	// let location = useLocation();
-	// let history = useHistory();
-	// let match = useRouteMatch('/');
-
 	return (
 		<>
 			<header>
