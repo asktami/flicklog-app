@@ -4,6 +4,10 @@
 
 ![Landing Page](https://github.com/asktami/flicklog-app/blob/master/flicklog-landing.png)
 
+![Movie Details](https://github.com/asktami/flicklog-app/blob/master/flicklog-movieDetail.png)
+
+![Watchlist](https://github.com/asktami/flicklog-app/blob/master/flicklog-watchlist.png)
+
 ## Description
 
 - a React Fullstack App
