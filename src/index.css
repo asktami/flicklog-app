@@ -702,6 +702,10 @@ CARDS
 	width: 90%;
 }
 
+.card-body-buttons {
+	margin-bottom: 20px;
+}
+
 .genre-container {
 	display: flex;
 	flex-direction: row;

@@ -142,7 +142,7 @@ export default class WatchListButton extends Component {
 					{!hasMovie ? (
 						<>
 							{id === this.state.wasClicked ? (
-								<span className="processing">Adding ...</span>
+								<span className="processing">Processing ...</span>
 							) : (
 								<button
 									className="btn btn-as-link"
