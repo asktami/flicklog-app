@@ -5,6 +5,10 @@ import MovieApiService from '../../services/movie-api-service';
 
 import Nav from '../../components/Nav/Nav';
 
+// using trackPromise so can use LoadingIndicator
+import { trackPromise } from 'react-promise-tracker';
+import LoadingIndicator from '../../components/LoadingIndicator/LoadingIndicator';
+
 import MoviePageItem from './MoviePageItem';
 
 export default class MoviePage extends Component {
@@ -30,20 +34,24 @@ export default class MoviePage extends Component {
 		);
 		console.log('------------ 3. MOVIEPAGE componentDidMount has id = ', id);
 
-		MovieApiService.getMovieById(id)
-			.then((movie) => {
-				movie.user_id = this.context.loginUserId;
+		trackPromise(
+			MovieApiService.getMovieById(id)
+				.then((movie) => {
+					movie.user_id = this.context.loginUserId;
 
-				this.context.setMovie(movie);
+					this.context.setMovie(movie);
 
-				// need to save movie.videos.results separately because when don't is not seen as an array of objects when I try to extract from context's movie object
-				this.context.setVideos(movie.videos.results);
-			})
-			.catch(this.context.setError);
+					// need to save movie.videos.results separately because when don't is not seen as an array of objects when I try to extract from context's movie object
+					this.context.setVideos(movie.videos.results);
+				})
+				.catch(this.context.setError)
+		);
 
-		MovieApiService.getMovieReviews(id)
-			.then(this.context.setReviews)
-			.catch(this.context.setError);
+		trackPromise(
+			MovieApiService.getMovieReviews(id)
+				.then(this.context.setReviews)
+				.catch(this.context.setError)
+		);
 	}
 
 	componentWillUnmount() {
@@ -64,6 +72,7 @@ export default class MoviePage extends Component {
 						addToWatchList={this.addToWatchList}
 						removeFromWatchList={this.removeFromWatchList}
 					/>
+					<LoadingIndicator />
 				</main>
 			</>
 		);

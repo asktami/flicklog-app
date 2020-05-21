@@ -8,6 +8,8 @@ import Nav from '../../components/Nav/Nav';
 import SearchForm from '../../components/SearchForm/SearchForm';
 import Pagination from '../../components/Pagination/Pagination';
 
+// using trackPromise so can use LoadingIndicator
+import { trackPromise } from 'react-promise-tracker';
 import LoadingIndicator from '../../components/LoadingIndicator/LoadingIndicator';
 
 import MovieList from '../../components/MovieList/MovieList';
@@ -31,17 +33,19 @@ export default class MovieListPage extends Component {
 		console.log('handleChangePage query = ', this.context.query);
 		console.log('handleChangePage pageNumber = ', this.context.pageNumber);
 
-		MovieApiService.getMovies(this.context.query, pageNumber)
-			.then((res) => {
-				const data = res;
-				const movies = res.results;
+		trackPromise(
+			MovieApiService.getMovies(this.context.query, pageNumber)
+				.then((res) => {
+					const data = res;
+					const movies = res.results;
 
-				console.log('-------- movieListPage currentPage = ', data.page);
+					console.log('-------- movieListPage currentPage = ', data.page);
 
-				// default = do not append search results
-				this.context.setMovieList(movies);
-			})
-			.catch(this.context.setError);
+					// default = do not append search results
+					this.context.setMovieList(movies);
+				})
+				.catch(this.context.setError)
+		);
 	};
 
 	loadMore = () => {
@@ -51,17 +55,19 @@ export default class MovieListPage extends Component {
 
 		this.context.setPageNumber(this.context.pageNumber + 1);
 
-		MovieApiService.getMovies(this.context.query, this.context.pageNumber + 1)
-			.then((res) => {
-				const data = res;
-				const movies = res.results;
+		trackPromise(
+			MovieApiService.getMovies(this.context.query, this.context.pageNumber + 1)
+				.then((res) => {
+					const data = res;
+					const movies = res.results;
 
-				console.log('-------- movieListPage currentPage = ', data.page);
+					console.log('-------- movieListPage currentPage = ', data.page);
 
-				// append search results for loadMore
-				this.context.setMovieList(this.context.movieList.concat(movies));
-			})
-			.catch(this.context.setError);
+					// append search results for loadMore
+					this.context.setMovieList(this.context.movieList.concat(movies));
+				})
+				.catch(this.context.setError)
+		);
 	};
 
 	render() {
