@@ -1,8 +1,8 @@
 # FlickLog
 
-![FlickLog screenshot](https://github.com/asktami/flicklog-app/blob/master/flicklog-2.png 'FlickLog')
-
 [View Live](https://flicklog-app.now.sh/)
+
+![Landing Page](https://github.com/asktami/flicklog-app/blob/master/flicklog-landing.png)
 
 ## Description
 
