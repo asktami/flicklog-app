@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default class WatchListButton extends Component {
 	static contextType = AppContext;
 
-	state = { wasClicked: null };
+	state = { wasClicked: false };
 
 	// NOTE: I use document.body.style.cursor and state 'wasClicked' because of page render timing issues, to give feedback to user so that they see the app is adding to watchlist/removing from watchlist messages when the network is slow and that process is taking a while to complete; without it users complained that it looked like nothing was happening
 
@@ -18,13 +18,19 @@ export default class WatchListButton extends Component {
 
 	// if stored watchList has this movie id then show the delete from watchlist button
 
+	// sleep function to test adding / removing messages
+	sleep = (milliseconds) => {
+		return new Promise((resolve) => setTimeout(resolve, milliseconds));
+	};
+
 	addToWatchList = (props) => {
 		const movie = this.props;
 
 		this.setState({ wasClicked: true });
-
 		// change cursor
 		document.body.style.cursor = 'wait';
+
+		//alert('Adding...');
 
 		MovieApiService.addWatchListItem(
 			movie.id,
@@ -46,7 +52,7 @@ export default class WatchListButton extends Component {
 						// change cursor back
 						document.body.style.cursor = 'default';
 
-						this.setState({ wasClicked: null });
+						this.setState({ wasClicked: false });
 					});
 				});
 			})
@@ -69,7 +75,7 @@ export default class WatchListButton extends Component {
 					// change cursor back
 					document.body.style.cursor = 'default';
 
-					this.setState({ wasClicked: null });
+					this.setState({ wasClicked: false });
 				});
 			})
 			.catch(this.context.setError);
@@ -107,7 +113,6 @@ export default class WatchListButton extends Component {
 									aria-label="remove-movie-from-watchlist-button"
 									onClick={() => {
 										this.removeFromWatchList(id);
-										this.setState({ wasClicked: false });
 									}}
 								>
 									<FontAwesomeIcon icon={['fas', 'times']} size="1x" /> Remove
@@ -126,7 +131,6 @@ export default class WatchListButton extends Component {
 									aria-label="add-movie-to-watchlist-button"
 									onClick={() => {
 										this.addToWatchList(props);
-										this.setState({ wasClicked: false });
 									}}
 								>
 									<FontAwesomeIcon icon={['fas', 'check']} size="1x" /> Add to
