@@ -18,9 +18,9 @@
 
 ## Watchlist
 
----
-
 ![Watchlist](https://github.com/asktami/flicklog-app/blob/master/flicklog-watchlist.png)
+
+---
 
 ## Description
 
