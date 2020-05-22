@@ -18,8 +18,12 @@ export default class WatchListButton extends Component {
 
 	// if stored watchList has this movie id then show the delete from watchlist button
 
+	sleep = () => {
+		console.log('sleep');
+	};
+
 	addToWatchList = (movie) => {
-		this.setState({ isClicked: 'Add' });
+		this.setState({ isClicked: true });
 
 		// change cursor
 		document.body.style.cursor = 'wait';
@@ -50,7 +54,7 @@ export default class WatchListButton extends Component {
 			})
 			.catch(this.context.setError);
 
-		this.setState({ isClicked: null });
+		this.setState({ isClicked: false });
 
 		// test error
 		// this.context.setError(
@@ -59,7 +63,7 @@ export default class WatchListButton extends Component {
 	};
 
 	removeFromWatchList = (movieId) => {
-		this.setState({ isClicked: 'Remove' });
+		this.setState({ isClicked: true });
 
 		this.context.removeWatchListItem(movieId);
 
@@ -77,7 +81,7 @@ export default class WatchListButton extends Component {
 			})
 			.catch(this.context.setError);
 
-		this.setState({ isClicked: null });
+		this.setState({ isClicked: false });
 
 		// test error
 		// this.context.setError(
@@ -107,29 +111,22 @@ export default class WatchListButton extends Component {
 		if (loginUserId !== '') {
 			return (
 				<div>
-					{hasMovie ? (
-						isClicked === 'Remove' ? (
-							<>
-								<FontAwesomeIcon icon={['fas', 'spinner']} size="1x" />
-								Removing
-							</>
-						) : (
-							<button
-								className="btn btn-as-link"
-								aria-label="remove-movie-from-watchlist-button"
-								onClick={() => {
-									this.removeFromWatchList(movie.id);
-								}}
-							>
-								<FontAwesomeIcon icon={['fas', 'times']} size="1x" /> Remove
-								from WatchList
-							</button>
-						)
-					) : isClicked === 'Add' ? (
+					{isClicked === true ? (
 						<>
-							<FontAwesomeIcon icon={['fas', 'spinner']} size="1x" />
-							Adding
+							<FontAwesomeIcon icon={['fas', 'spinner']} size="1x" />{' '}
+							Proccessing
 						</>
+					) : hasMovie ? (
+						<button
+							className="btn btn-as-link"
+							aria-label="remove-movie-from-watchlist-button"
+							onClick={() => {
+								this.removeFromWatchList(movie.id);
+							}}
+						>
+							<FontAwesomeIcon icon={['fas', 'times']} size="1x" /> Remove from
+							WatchList
+						</button>
 					) : (
 						<button
 							className="btn btn-as-link"
