@@ -136,9 +136,14 @@ export default class WatchListButton extends Component {
 
 		if (isClicked === true) {
 			return (
-				<>
-					<FontAwesomeIcon icon={['fas', 'spinner']} size="1x" /> Processing
-				</>
+				<button
+					className="btn btn-as-link"
+					aria-label="processing"
+					disabled={true}
+				>
+					<FontAwesomeIcon icon={['fas', 'spinner']} size="1x" />
+					&nbsp;&nbsp;Processing
+				</button>
 			);
 		} else {
 			return this.renderWatchListButton(this.props);
