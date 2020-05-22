@@ -47,6 +47,9 @@ export default class EditReviewPage extends React.Component {
 				});
 			})
 			.catch(this.context.setError);
+
+		// test error
+		// this.context.setError('Testing Error in EditReviewPage - getReview');
 	}
 
 	updateErrorCount = () => {
@@ -130,6 +133,10 @@ export default class EditReviewPage extends React.Component {
 			.then(() => this.context.editReview(updatedReview))
 			.then(() => {
 				this.resetFields(updatedReview);
+
+				// test error
+				// this.context.setError('Testing Error in EditReviewPage - handleSubmit');
+
 				this.props.history.goBack();
 			})
 			.catch(this.context.setError);
@@ -137,6 +144,28 @@ export default class EditReviewPage extends React.Component {
 
 	render() {
 		const { movie, errors, review, rating } = this.state;
+		const { error } = this.context;
+
+		if (error) {
+			return (
+				<>
+					<header>
+						<Nav />
+					</header>
+					<main>
+						<section>
+							<p className="error">
+								There was an error, try again.
+								<br />
+								{error.message
+									? error.message
+									: JSON.parse(JSON.stringify(error))}
+							</p>
+						</section>
+					</main>
+				</>
+			);
+		}
 
 		return (
 			<>

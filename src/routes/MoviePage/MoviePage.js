@@ -40,6 +40,9 @@ export default class MoviePage extends Component {
 		MovieApiService.getMovieReviews(id)
 			.then(this.context.setReviews)
 			.catch(this.context.setError);
+
+		// test error
+		// this.context.setError('Testing Error in MoviePage');
 	}
 
 	componentWillUnmount() {
@@ -47,14 +50,29 @@ export default class MoviePage extends Component {
 	}
 
 	render() {
+		const { error } = this.context;
 		return (
 			<>
 				<header>
 					<Nav />
 				</header>
 				<main>
-					<MoviePageItem />
-					<LoadingIndicator />
+					{error ? (
+						<section>
+							<p className="error">
+								There was an error, try again.
+								<br />
+								{error.message
+									? error.message
+									: JSON.parse(JSON.stringify(error))}
+							</p>
+						</section>
+					) : (
+						<>
+							<MoviePageItem />
+							<LoadingIndicator />
+						</>
+					)}
 				</main>
 			</>
 		);

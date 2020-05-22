@@ -25,7 +25,6 @@ import AuthApiService from '../../services/auth-api-service';
 import IdleService from '../../services/idle-service';
 
 import AppContext from '../../contexts/AppContext';
-
 export default class App extends Component {
 	constructor(props) {
 		super(props);
@@ -134,19 +133,11 @@ export default class App extends Component {
 	};
 
 	render() {
-		if (this.context.error) {
-			return <p className="error">{this.context.error}</p>;
-		}
-
 		return (
 			<>
 				<div ref={this.ref_Top}></div>
-
 				{this.state.hasError && (
-					<p className="error">
-						APP state.hasError = There was an error! Oh no!{' '}
-						{this.state.hasError}
-					</p>
+					<p className="error">There was an error: {this.state.hasError}</p>
 				)}
 
 				<Switch>
@@ -192,6 +183,7 @@ export default class App extends Component {
 
 					<Route component={NotFoundPage} />
 				</Switch>
+
 				<footer>
 					<BackToTop
 						goBackToTop={() => this.scrollToRef(this.ref_Top)}

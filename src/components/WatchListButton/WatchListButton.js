@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default class WatchListButton extends Component {
 	static contextType = AppContext;
 
-	state = { isClicked: false };
+	state = { isClicked: null };
 
 	// NOTE: I use document.body.style.cursor and state 'isClicked' because of page render timing issues, to give feedback to user so that they see the app is adding to watchlist/removing from watchlist messages when the network is slow and that process is taking a while to complete; without it users complained that it looked like nothing was happening
 
@@ -19,7 +19,7 @@ export default class WatchListButton extends Component {
 	// if stored watchList has this movie id then show the delete from watchlist button
 
 	addToWatchList = (movie) => {
-		this.setState({ isClicked: true });
+		this.setState({ isClicked: 'Add' });
 
 		// change cursor
 		document.body.style.cursor = 'wait';
@@ -45,18 +45,21 @@ export default class WatchListButton extends Component {
 
 						// change cursor back
 						document.body.style.cursor = 'default';
-
-						this.setState({ isClicked: false });
 					});
 				});
 			})
 			.catch(this.context.setError);
 
-		this.setState({ isClicked: false });
+		this.setState({ isClicked: null });
+
+		// test error
+		// this.context.setError(
+		// 	'Testing Error in WatchListButton - addWatchListItem'
+		// );
 	};
 
 	removeFromWatchList = (movieId) => {
-		this.setState({ isClicked: true });
+		this.setState({ isClicked: 'Remove' });
 
 		this.context.removeWatchListItem(movieId);
 
@@ -70,13 +73,16 @@ export default class WatchListButton extends Component {
 
 					// change cursor back
 					document.body.style.cursor = 'default';
-
-					this.setState({ isClicked: false });
 				});
 			})
 			.catch(this.context.setError);
 
-		this.setState({ isClicked: false });
+		this.setState({ isClicked: null });
+
+		// test error
+		// this.context.setError(
+		// 	'Testing Error in WatchListButton - deleteWatchListItem'
+		// );
 	};
 
 	renderWatchListButton = (movie) => {
@@ -102,55 +108,46 @@ export default class WatchListButton extends Component {
 			return (
 				<div>
 					{hasMovie ? (
+						isClicked === 'Remove' ? (
+							<>
+								<FontAwesomeIcon icon={['fas', 'spinner']} size="1x" />
+								Removing
+							</>
+						) : (
+							<button
+								className="btn btn-as-link"
+								aria-label="remove-movie-from-watchlist-button"
+								onClick={() => {
+									this.removeFromWatchList(movie.id);
+								}}
+							>
+								<FontAwesomeIcon icon={['fas', 'times']} size="1x" /> Remove
+								from WatchList
+							</button>
+						)
+					) : isClicked === 'Add' ? (
+						<>
+							<FontAwesomeIcon icon={['fas', 'spinner']} size="1x" />
+							Adding
+						</>
+					) : (
 						<button
 							className="btn btn-as-link"
-							disabled={isClicked}
-							aria-label="remove-movie-from-watchlist-button"
-							onClick={() => {
-								this.removeFromWatchList(movie.id);
-							}}
-						>
-							{isClicked ? (
-								<>
-									<FontAwesomeIcon icon={['fas', 'spinner']} size="1x" />
-									Processing
-								</>
-							) : (
-								<>
-									<FontAwesomeIcon icon={['fas', 'times']} size="1x" /> Remove
-									from WatchList
-								</>
-							)}
-						</button>
-					) : !hasMovie ? (
-						<button
-							className="btn btn-as-link"
-							disabled={isClicked}
 							aria-label="add-movie-to-watchlist-button"
 							onClick={() => {
 								this.addToWatchList(movie);
 							}}
 						>
-							{isClicked ? (
-								<>
-									<FontAwesomeIcon icon={['fas', 'spinner']} size="1x" />
-									Processing
-								</>
-							) : (
-								<>
-									<FontAwesomeIcon icon={['fas', 'check']} size="1x" /> Add to
-									WatchList
-								</>
-							)}
+							<FontAwesomeIcon icon={['fas', 'check']} size="1x" /> Add to
+							WatchList
 						</button>
-					) : null}
+					)}
 				</div>
 			);
 		}
 	};
 
 	render() {
-		// this.props = the movie object
 		return this.renderWatchListButton(this.props);
 	}
 }

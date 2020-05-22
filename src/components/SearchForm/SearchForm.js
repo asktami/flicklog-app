@@ -13,10 +13,16 @@ import MovieApiService from '../../services/movie-api-service';
 class SearchForm extends Component {
 	static contextType = AppContext;
 
+	componentDidMount() {
+		this.context.clearError();
+	}
+
 	handleSubmit = async (e) => {
 		e.preventDefault();
-		this.context.setPageNumber(1);
 
+		this.context.clearError();
+
+		this.context.setPageNumber(1);
 		this.context.setPageName('Movies: ' + this.context.query);
 
 		trackPromise(
@@ -28,6 +34,9 @@ class SearchForm extends Component {
 					this.context.setTotalPages(data.total_pages);
 
 					this.context.setMovieList(movies);
+
+					// test error
+					// this.context.setError('Testing Error in SearchForm - getMovies');
 				})
 				.catch(this.context.setError)
 		);

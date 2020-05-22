@@ -27,12 +27,12 @@ export default class MovieListPage extends Component {
 
 	// change page
 	handleChangePage = (pageNumber) => {
+		this.context.clearError();
 		this.context.setPageNumber(pageNumber);
 
 		trackPromise(
 			MovieApiService.getMovies(this.context.query, pageNumber)
 				.then((res) => {
-					const data = res;
 					const movies = res.results;
 
 					// default = do not append search results
@@ -40,6 +40,9 @@ export default class MovieListPage extends Component {
 				})
 				.catch(this.context.setError)
 		);
+
+		// test error
+		// this.context.setError('Testing Error in MovieListPage - handleChangePage');
 	};
 
 	loadMore = () => {
@@ -47,12 +50,12 @@ export default class MovieListPage extends Component {
 		// update state value based on previous state value, using Hooks
 		// setPageNumber(prevPageNumber => prevPageNumber + 1);
 
+		this.context.clearError();
 		this.context.setPageNumber(this.context.pageNumber + 1);
 
 		trackPromise(
 			MovieApiService.getMovies(this.context.query, this.context.pageNumber + 1)
 				.then((res) => {
-					const data = res;
 					const movies = res.results;
 
 					// append search results for loadMore
@@ -60,6 +63,9 @@ export default class MovieListPage extends Component {
 				})
 				.catch(this.context.setError)
 		);
+
+		// test error
+		// this.context.setError('Testing Error in MovieListPage - loadMore');
 	};
 
 	render() {
@@ -78,7 +84,8 @@ export default class MovieListPage extends Component {
 					<SearchForm />
 				</header>
 				<main>
-					{this.props.location.pathname.includes('/movies/search') &&
+					{!error &&
+					this.props.location.pathname.includes('/movies/search') &&
 					totalPages !== 0 ? (
 						<Pagination
 							handleChangePage={this.handleChangePage}
@@ -87,12 +94,6 @@ export default class MovieListPage extends Component {
 							loadMore={this.loadMore}
 						/>
 					) : null}
-
-					{this.context.error && (
-						<p id="error" className="error">
-							{'Error: ' + this.context.error}
-						</p>
-					)}
 					<section>
 						<h2>{pageName}</h2>
 						{error ? (
@@ -109,7 +110,7 @@ export default class MovieListPage extends Component {
 							</ul>
 						)}
 
-						{pageNumber === totalPages || totalPages === 0 ? null : (
+						{error || pageNumber === totalPages || totalPages === 0 ? null : (
 							<div className="center">
 								<button
 									className="btn"

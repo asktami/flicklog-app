@@ -30,6 +30,13 @@ export default class LandingMovieList extends React.Component {
 		);
 	};
 
+	componentDidMount() {
+		if (this.props.url !== '') {
+			this.handleAPICall(this.props);
+			this.setState({ mounted: true });
+		}
+	}
+
 	componentDidUpdate(nextProps) {
 		// reset page if items array has changed
 		if (nextProps.url !== this.props.url && nextProps.url !== '') {
@@ -38,12 +45,6 @@ export default class LandingMovieList extends React.Component {
 		}
 	}
 
-	componentDidMount() {
-		if (this.props.url !== '') {
-			this.handleAPICall(this.props);
-			this.setState({ mounted: true });
-		}
-	}
 	componentWillUnmount() {
 		this.setState({ mounted: false });
 	}

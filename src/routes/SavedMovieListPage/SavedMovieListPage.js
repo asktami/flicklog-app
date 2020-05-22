@@ -38,6 +38,9 @@ export default class SavedMovieList extends Component {
 				})
 				.catch(this.context.setError)
 		);
+
+		// test error
+		// this.context.setError('Testing Error in SavedMovieListPage');
 	}
 
 	renderMovies() {

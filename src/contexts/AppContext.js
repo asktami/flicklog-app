@@ -69,7 +69,7 @@ export class AppProvider extends Component {
 	};
 
 	setError = (error) => {
-		this.setState(error);
+		this.setState({ error });
 	};
 
 	clearError = () => {

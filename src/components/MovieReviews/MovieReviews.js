@@ -7,19 +7,41 @@ import StarRating from '../StarRating/StarRating';
 export default class MovieReviews extends Component {
 	static contextType = AppContext;
 
+	componentDidMount() {
+		this.context.clearError();
+	}
+
 	handleClickDeleteReview = (review_id) => {
+		this.context.clearError();
+
 		MovieApiService.deleteReview(review_id)
 			.then(() => this.context.deleteReview(review_id))
 			.catch(this.context.setError);
+
+		// test error
+		// this.context.setError(
+		// 	'Testing Error in MovieReviews - handleClickDeleteReview'
+		// );
 	};
 
 	render() {
-		const { loginUserId, reviews } = this.context;
+		const { error, loginUserId, reviews } = this.context;
 
 		return (
 			<>
 				<ul className="review-list">
 					<h3 className="movie-reviews-title">Reviews</h3>
+
+					{error ? (
+						<p className="error">
+							There was an error, try again.
+							<br />
+							{error.message
+								? error.message
+								: JSON.parse(JSON.stringify(error))}
+						</p>
+					) : null}
+
 					{reviews.length === 0 && (
 						<li className="review-item">
 							<div className="review-text">No reviews.</div>
