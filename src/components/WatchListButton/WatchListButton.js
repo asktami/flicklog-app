@@ -104,53 +104,44 @@ export default class WatchListButton extends Component {
 			return (
 				<div>
 					{hasMovie ? (
-						<>
-							{this.state.wasClicked ? (
-								<>
-									<FontAwesomeIcon icon={['fas', 'spinner']} size="1x" />{' '}
-									Processing
-								</>
-							) : (
-								<button
-									className="btn btn-as-link"
-									aria-label="remove-movie-from-watchlist-button"
-									onClick={() => {
-										this.removeFromWatchList(movie.id);
-									}}
-								>
-									<FontAwesomeIcon icon={['fas', 'times']} size="1x" /> Remove
-									from WatchList
-								</button>
-							)}
-						</>
-					) : null}
-					{!hasMovie ? (
-						<>
-							{this.state.wasClicked ? (
-								<>
-									<FontAwesomeIcon icon={['fas', 'spinner']} size="1x" />{' '}
-									Processing
-								</>
-							) : (
-								<button
-									className="btn btn-as-link"
-									aria-label="add-movie-to-watchlist-button"
-									onClick={() => {
-										this.addToWatchList(movie);
-									}}
-								>
-									<FontAwesomeIcon icon={['fas', 'check']} size="1x" /> Add to
-									WatchList
-								</button>
-							)}
-						</>
-					) : null}
+						<button
+							className="btn btn-as-link"
+							aria-label="remove-movie-from-watchlist-button"
+							onClick={() => {
+								this.removeFromWatchList(movie.id);
+							}}
+						>
+							<FontAwesomeIcon icon={['fas', 'times']} size="1x" /> Remove from
+							WatchList
+						</button>
+					) : (
+						<button
+							className="btn btn-as-link"
+							aria-label="add-movie-to-watchlist-button"
+							onClick={() => {
+								this.addToWatchList(movie);
+							}}
+						>
+							<FontAwesomeIcon icon={['fas', 'check']} size="1x" /> Add to
+							WatchList
+						</button>
+					)}
 				</div>
 			);
 		}
 	};
 
 	render() {
-		return this.renderWatchListButton(this.props);
+		const { isClicked } = this.state;
+
+		if (isClicked === true) {
+			return (
+				<>
+					<FontAwesomeIcon icon={['fas', 'spinner']} size="1x" /> Processing
+				</>
+			);
+		} else {
+			return this.renderWatchListButton(this.props);
+		}
 	}
 }
