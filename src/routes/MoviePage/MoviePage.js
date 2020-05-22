@@ -60,7 +60,7 @@ export default class MoviePage extends Component {
 					{error ? (
 						<section>
 							<p className="error">
-								There was an error, try again.
+								There was an error, please wait a few minutes and try again.
 								<br />
 								{error.message
 									? error.message

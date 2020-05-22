@@ -95,7 +95,7 @@ export default class SavedMovieList extends Component {
 					<section>
 						{error ? (
 							<p className="error">
-								There was an error, try again.
+								There was an error, please wait a few minutes and try again.
 								<br />
 								{error.message
 									? error.message
