@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default class WatchListButton extends Component {
 	static contextType = AppContext;
 
-	state = { isClicked: null };
+	state = { isClicked: false };
 
 	// NOTE: I use document.body.style.cursor and state 'isClicked' because of page render timing issues, to give feedback to user so that they see the app is adding to watchlist/removing from watchlist messages when the network is slow and that process is taking a while to complete; without it users complained that it looked like nothing was happening
 
@@ -18,17 +18,11 @@ export default class WatchListButton extends Component {
 
 	// if stored watchList has this movie id then show the delete from watchlist button
 
-	sleep = () => {
-		console.log('sleep');
-	};
-
 	addToWatchList = (movie) => {
 		this.setState({ isClicked: true });
 
 		// change cursor
 		document.body.style.cursor = 'wait';
-
-		//alert('Adding...');
 
 		MovieApiService.addWatchListItem(
 			movie.id,
@@ -49,12 +43,11 @@ export default class WatchListButton extends Component {
 
 						// change cursor back
 						document.body.style.cursor = 'default';
+						this.setState({ isClicked: false });
 					});
 				});
 			})
 			.catch(this.context.setError);
-
-		this.setState({ isClicked: false });
 
 		// test error
 		// this.context.setError(
@@ -77,11 +70,10 @@ export default class WatchListButton extends Component {
 
 					// change cursor back
 					document.body.style.cursor = 'default';
+					this.setState({ isClicked: false });
 				});
 			})
 			.catch(this.context.setError);
-
-		this.setState({ isClicked: false });
 
 		// test error
 		// this.context.setError(
@@ -111,34 +103,48 @@ export default class WatchListButton extends Component {
 		if (loginUserId !== '') {
 			return (
 				<div>
-					{isClicked === true ? (
+					{hasMovie ? (
 						<>
-							<FontAwesomeIcon icon={['fas', 'spinner']} size="1x" />{' '}
-							Proccessing
+							{this.state.wasClicked ? (
+								<>
+									<FontAwesomeIcon icon={['fas', 'spinner']} size="1x" />{' '}
+									Processing
+								</>
+							) : (
+								<button
+									className="btn btn-as-link"
+									aria-label="remove-movie-from-watchlist-button"
+									onClick={() => {
+										this.removeFromWatchList(movie.id);
+									}}
+								>
+									<FontAwesomeIcon icon={['fas', 'times']} size="1x" /> Remove
+									from WatchList
+								</button>
+							)}
 						</>
-					) : hasMovie ? (
-						<button
-							className="btn btn-as-link"
-							aria-label="remove-movie-from-watchlist-button"
-							onClick={() => {
-								this.removeFromWatchList(movie.id);
-							}}
-						>
-							<FontAwesomeIcon icon={['fas', 'times']} size="1x" /> Remove from
-							WatchList
-						</button>
-					) : (
-						<button
-							className="btn btn-as-link"
-							aria-label="add-movie-to-watchlist-button"
-							onClick={() => {
-								this.addToWatchList(movie);
-							}}
-						>
-							<FontAwesomeIcon icon={['fas', 'check']} size="1x" /> Add to
-							WatchList
-						</button>
-					)}
+					) : null}
+					{!hasMovie ? (
+						<>
+							{this.state.wasClicked ? (
+								<>
+									<FontAwesomeIcon icon={['fas', 'spinner']} size="1x" />{' '}
+									Processing
+								</>
+							) : (
+								<button
+									className="btn btn-as-link"
+									aria-label="add-movie-to-watchlist-button"
+									onClick={() => {
+										this.addToWatchList(movie);
+									}}
+								>
+									<FontAwesomeIcon icon={['fas', 'check']} size="1x" /> Add to
+									WatchList
+								</button>
+							)}
+						</>
+					) : null}
 				</div>
 			);
 		}

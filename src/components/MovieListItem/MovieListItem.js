@@ -17,7 +17,7 @@ const MovieListItem = (props) => {
 	// update stored movie.background
 	// let background_test = DEFAULT_PLACEHOLDER_IMAGE;
 	movie.background = movie.poster_path
-		? 'http://image.tmdb.org/t/p/w300' + movie.poster_path
+		? 'https://image.tmdb.org/t/p/w300' + movie.poster_path
 		: movie.backdrop_path
 		? `https://image.tmdb.org/t/p/w154${movie.backdrop_path}`
 		: MISSING_IMG;

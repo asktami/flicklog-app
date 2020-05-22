@@ -5,7 +5,7 @@ exports[`MovieListItem component renders a MovieListItem by default 1`] = `
   <img
     alt="Alien"
     className="figure-image"
-    src="http://image.tmdb.org/t/p/w300vfrQk5IPloGg1v9Rzbh2Eg3VGyM.jpg"
+    src="https://image.tmdb.org/t/p/w300vfrQk5IPloGg1v9Rzbh2Eg3VGyM.jpg"
   />
   <figcaption>
     <Link
@@ -51,7 +51,7 @@ exports[`MovieListItem component renders the MovieListItem given props 1`] = `
   <img
     alt="Alien"
     className="figure-image"
-    src="http://image.tmdb.org/t/p/w300vfrQk5IPloGg1v9Rzbh2Eg3VGyM.jpg"
+    src="https://image.tmdb.org/t/p/w300vfrQk5IPloGg1v9Rzbh2Eg3VGyM.jpg"
   />
   <figcaption>
     <Link
