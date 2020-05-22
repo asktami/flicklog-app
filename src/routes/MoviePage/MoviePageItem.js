@@ -34,13 +34,15 @@ export default class MoviePageItem extends Component {
 	renderYouTubes = () => {
 		const { videos } = this.context;
 		return (
-			<ul>
-				{videos.map((video) => (
-					<li key={video.key}>
-						<YouTube id={video.key} title={video.name} />
-					</li>
-				))}
-			</ul>
+			<div>
+				<ul>
+					{videos.map((video) => (
+						<li key={video.key}>
+							<YouTube id={video.key} title={video.name} />
+						</li>
+					))}
+				</ul>
+			</div>
 		);
 	};
 
@@ -87,9 +89,7 @@ export default class MoviePageItem extends Component {
 							{movie.overview}
 
 							{movie.homepage && (
-								<>
-									<br />
-									<br />
+								<div>
 									<a
 										href={movie.homepage}
 										className="btn-as-link"
@@ -98,9 +98,10 @@ export default class MoviePageItem extends Component {
 									>
 										Visit homepage
 									</a>
-								</>
+								</div>
 							)}
 						</div>
+
 						<div className="card-body-buttons">
 							<WatchListButton {...movie} /> &nbsp;
 							{loginUserId === '' ? (

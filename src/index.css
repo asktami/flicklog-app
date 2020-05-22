@@ -699,17 +699,27 @@ CARDS
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	width: 90%;
+	width: 100%;
+	padding: 0 10px;
 }
 
 .genre-container {
 	display: flex;
+	flex-wrap: wrap;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	width: 90%;
-	padding: 0 10px;
+}
+
+.genre-container span {
+	padding: 5px;
+	font-size: 12px;
+	margin-right: 10px;
+	border: 1px solid #330000;
+	text-align: center;
+	-webkit-border-radius: 5em;
+	-moz-border-radius: 5em;
 }
 
 /* youtube container */
@@ -726,21 +736,11 @@ CARDS
 }
 
 .card-body div {
-	padding-top: 10px;
+	padding: 10px 0;
 }
 
 .card-body h3 {
 	padding: 0;
-}
-
-.genre-container span {
-	font-size: 12px;
-	margin-right: 10px;
-	padding: 5px;
-	border: 1px solid #330000;
-	text-align: center;
-	-webkit-border-radius: 5em;
-	-moz-border-radius: 5em;
 }
 
 /*
@@ -759,6 +759,8 @@ MEDIA QUERIES
 
 	.genre-container {
 		justify-content: flex-start;
+		margin: 10px 0;
+		padding: 0;
 	}
 
 	.card-body {
