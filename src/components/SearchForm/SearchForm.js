@@ -40,7 +40,6 @@ class SearchForm extends Component {
 	};
 
 	render() {
-		console.log('-------SearchForm props = ', this.props);
 		return (
 			<form
 				id="searchForm"

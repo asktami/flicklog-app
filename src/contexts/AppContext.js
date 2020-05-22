@@ -82,13 +82,6 @@ export class AppProvider extends Component {
 
 	handleInputChange = async (e) => {
 		await this.setQuery(e.target.value.trim());
-
-		console.log(
-			'got to handleInputChange pageNumber = ',
-			this.state.pageNumber
-		);
-
-		console.log('got to handleInputChange query = ', this.state.query);
 	};
 
 	setMovieList = (movieList) => {

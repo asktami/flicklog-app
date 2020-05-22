@@ -65,10 +65,6 @@ export default class AddReviewForm extends Component {
 		const { movie, addReview, setError } = this.context;
 		const { review, rating } = e.target;
 
-		console.log('******* before add review, movie id = ', movie.id);
-
-		console.log('******* before add review, movie d = ', JSON.stringify(movie));
-
 		MovieApiService.postReview(
 			movie.id,
 			review.value,

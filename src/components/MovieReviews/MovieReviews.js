@@ -8,7 +8,6 @@ export default class MovieReviews extends Component {
 	static contextType = AppContext;
 
 	handleClickDeleteReview = (review_id) => {
-		console.log('delete review_id = ', review_id);
 		MovieApiService.deleteReview(review_id)
 			.then(() => this.context.deleteReview(review_id))
 			.catch(this.context.setError);

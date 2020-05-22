@@ -29,17 +29,11 @@ export default class MovieListPage extends Component {
 	handleChangePage = (pageNumber) => {
 		this.context.setPageNumber(pageNumber);
 
-		// re-do the search with the new page number
-		console.log('handleChangePage query = ', this.context.query);
-		console.log('handleChangePage pageNumber = ', this.context.pageNumber);
-
 		trackPromise(
 			MovieApiService.getMovies(this.context.query, pageNumber)
 				.then((res) => {
 					const data = res;
 					const movies = res.results;
-
-					console.log('-------- movieListPage currentPage = ', data.page);
 
 					// default = do not append search results
 					this.context.setMovieList(movies);
@@ -61,8 +55,6 @@ export default class MovieListPage extends Component {
 					const data = res;
 					const movies = res.results;
 
-					console.log('-------- movieListPage currentPage = ', data.page);
-
 					// append search results for loadMore
 					this.context.setMovieList(this.context.movieList.concat(movies));
 				})
@@ -78,9 +70,6 @@ export default class MovieListPage extends Component {
 			pageName,
 			movieList = [],
 		} = this.context;
-
-		console.log('------- movieListPage pageNumber = ', pageNumber);
-		console.log('------- movieListPage totalPages = ', totalPages);
 
 		return (
 			<>

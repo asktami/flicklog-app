@@ -13,10 +13,6 @@ const Pagination = ({
 		pageNumbers.push(i);
 	}
 
-	console.log('totalPages = ', totalPages);
-	console.log('lastPage = ', pageNumbers.length);
-	console.log(JSON.stringify(pageNumbers));
-
 	return (
 		<section>
 			<ul className="pagination">

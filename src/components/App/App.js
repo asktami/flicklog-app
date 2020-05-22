@@ -37,7 +37,6 @@ export default class App extends Component {
 	state = { hasError: false, showBackToTop: false };
 
 	static getDerivedStateFromError(error) {
-		console.error(error);
 		return { hasError: true };
 	}
 
@@ -135,8 +134,6 @@ export default class App extends Component {
 	};
 
 	render() {
-		console.log('APP this.context.movieList = ', this.context.movieList);
-
 		if (this.context.error) {
 			return <p className="error">{this.context.error}</p>;
 		}

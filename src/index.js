@@ -10,6 +10,7 @@ import './index.css';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 
 import {
+	faSpinner as fasSpinner,
 	faChevronCircleUp as fasChevronCircleUp,
 	faChevronCircleLeft as fasChevronCircleLeft,
 	faCheck as fasCheck,
@@ -23,6 +24,7 @@ import {
 
 library.add(
 	fab,
+	fasSpinner,
 	faSearch,
 	faChevronDown,
 	faChevronUp,

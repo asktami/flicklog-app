@@ -24,16 +24,6 @@ export default class MoviePage extends Component {
 		// scroll to top of widow when view page
 		window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 
-		console.log(
-			'------------ 1. MOVIEPAGE componentDidMount props = ',
-			JSON.stringify(this.props)
-		);
-		console.log(
-			'------------ 2. MOVIEPAGE componentDidMount params.id = ',
-			this.props.match.params.id
-		);
-		console.log('------------ 3. MOVIEPAGE componentDidMount has id = ', id);
-
 		trackPromise(
 			MovieApiService.getMovieById(id)
 				.then((movie) => {
@@ -47,11 +37,9 @@ export default class MoviePage extends Component {
 				.catch(this.context.setError)
 		);
 
-		trackPromise(
-			MovieApiService.getMovieReviews(id)
-				.then(this.context.setReviews)
-				.catch(this.context.setError)
-		);
+		MovieApiService.getMovieReviews(id)
+			.then(this.context.setReviews)
+			.catch(this.context.setError);
 	}
 
 	componentWillUnmount() {
@@ -59,19 +47,13 @@ export default class MoviePage extends Component {
 	}
 
 	render() {
-		const { loginUserId } = this.context;
-
 		return (
 			<>
 				<header>
 					<Nav />
 				</header>
 				<main>
-					<MoviePageItem
-						loginUserId={loginUserId}
-						addToWatchList={this.addToWatchList}
-						removeFromWatchList={this.removeFromWatchList}
-					/>
+					<MoviePageItem />
 					<LoadingIndicator />
 				</main>
 			</>

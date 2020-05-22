@@ -47,8 +47,6 @@ export default class MoviePageItem extends Component {
 	renderMovie() {
 		const { movie, videos, loginUserId } = this.context;
 
-		console.log('------------ 4. MoviePageItem renderMovie');
-
 		// update stored movie.background
 		// let background_test = DEFAULT_PLACEHOLDER_IMAGE;
 		movie.background = movie.poster_path
