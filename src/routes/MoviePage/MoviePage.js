@@ -31,8 +31,10 @@ export default class MoviePage extends Component {
 
 					this.context.setMovie(movie);
 
-					// need to save movie.videos.results separately because when don't is not seen as an array of objects when I try to extract from context's movie object
+					// need to save movie.videos.results AND movie.credits.cast separately because when don't is not seen as an array of objects when I try to extract from context's movie object
 					this.context.setVideos(movie.videos.results);
+
+					this.context.setCast(movie.credits.cast);
 				})
 				.catch(this.context.setError)
 		);

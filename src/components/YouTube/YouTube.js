@@ -1,5 +1,5 @@
 import React from 'react';
-const YouTube = ({ title, id }) => {
+const YouTube = ({ id, title }) => {
 	return (
 		<div
 			className="video"

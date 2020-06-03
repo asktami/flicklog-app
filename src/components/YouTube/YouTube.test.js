@@ -5,7 +5,7 @@ import toJson from 'enzyme-to-json';
 import YouTube from './YouTube';
 
 describe(`YouTube component`, () => {
-	it('renders a YouTube by default', () => {
+	it('renders a YouTube video by default', () => {
 		const wrapper = shallow(<YouTube />);
 		expect(toJson(wrapper)).toMatchSnapshot();
 	});

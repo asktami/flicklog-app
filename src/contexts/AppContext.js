@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 const AppContext = React.createContext({
 	movie: [],
 	videos: [],
+	cast: [],
 	reviews: [],
 	movieList: [],
 	watchList: [],
@@ -19,6 +20,7 @@ const AppContext = React.createContext({
 	setReviewList: () => {},
 	setMovie: () => {},
 	setVideos: () => {},
+	setCast: () => {},
 	setReviews: () => {},
 	clearMovie: () => {},
 	addReview: () => {},
@@ -41,6 +43,7 @@ export class AppProvider extends Component {
 		reviewList: [],
 		movie: [],
 		videos: [],
+		cast: [],
 		reviews: [],
 		showBackToTop: false,
 		pageName: '',
@@ -102,6 +105,10 @@ export class AppProvider extends Component {
 
 	setVideos = (videos) => {
 		this.setState({ videos });
+	};
+
+	setCast = (cast) => {
+		this.setState({ cast });
 	};
 
 	setReviews = (reviews) => {
@@ -167,9 +174,11 @@ export class AppProvider extends Component {
 			setReviewList: this.setReviewList,
 			movie: this.state.movie,
 			videos: this.state.videos,
+			cast: this.state.cast,
 			reviews: this.state.reviews,
 			setMovie: this.setMovie,
 			setVideos: this.setVideos,
+			setCast: this.setCast,
 			setReviews: this.setReviews,
 			clearMovie: this.clearMovie,
 			addReview: this.addReview,

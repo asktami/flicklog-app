@@ -51,6 +51,7 @@ a:active,
 h1,
 h2,
 h3,
+h4,
 input,
 footer,
 legend {
@@ -81,6 +82,10 @@ h3,
 legend {
 	color: #330000;
 	font-size: 24px;
+}
+
+h4 {
+	font-size: 20px;
 }
 
 b,
@@ -722,7 +727,7 @@ CARDS
 	-moz-border-radius: 5em;
 }
 
-/* youtube container */
+/* cast and youtube container */
 .card-body ul {
 	list-style: none;
 	display: flex;
@@ -741,6 +746,14 @@ CARDS
 
 .card-body h3 {
 	padding: 0;
+}
+
+div.actor {
+	width: 150px;
+}
+
+.actor img {
+	width: 100%;
 }
 
 /*

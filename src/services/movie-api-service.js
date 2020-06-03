@@ -49,7 +49,7 @@ const MovieApiService = {
 		// unprotected endpoint
 		// will work even when logged in / not
 
-		const url = `${config.EXTERNAL_ENDPOINT}/movie/${movie_id}?api_key=${config.API_KEY}&language=en-US&append_to_response=videos`;
+		const url = `${config.EXTERNAL_ENDPOINT}/movie/${movie_id}?api_key=${config.API_KEY}&language=en-US&append_to_response=videos,credits`;
 
 		return fetch(url, {
 			headers: {

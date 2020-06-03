@@ -10,7 +10,11 @@ import MovieReviews from '../../components/MovieReviews/MovieReviews';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import BackLink from '../../components/BackLink/BackLink';
+
 import YouTube from '../../components/YouTube/YouTube';
+
+import Actor from '../../components/Actor/Actor';
+
 import { convertDate } from '../../components/Utils/Utils';
 
 import MISSING_IMG from '../../img/missing_image.png';
@@ -35,6 +39,7 @@ export default class MoviePageItem extends Component {
 		const { videos } = this.context;
 		return (
 			<div>
+				<h4>Videos</h4>
 				<ul>
 					{videos.map((video) => (
 						<li key={video.key}>
@@ -46,8 +51,29 @@ export default class MoviePageItem extends Component {
 		);
 	};
 
+	renderCast = () => {
+		const { cast } = this.context;
+		return (
+			<div>
+				<h4>Top Billed Cast</h4>
+				<ul>
+					{cast.slice(0, 10).map((actor) => (
+						<li key={actor.id}>
+							<Actor
+								id={actor.id}
+								name={actor.name}
+								character={actor.character}
+								profile_path={actor.profile_path}
+							/>
+						</li>
+					))}
+				</ul>
+			</div>
+		);
+	};
+
 	renderMovie() {
-		const { movie, videos, loginUserId } = this.context;
+		const { movie, cast, videos, loginUserId } = this.context;
 
 		// update stored movie.background
 		// let background_test = DEFAULT_PLACEHOLDER_IMAGE;
@@ -110,6 +136,8 @@ export default class MoviePageItem extends Component {
 								</Link>
 							) : null}
 						</div>
+
+						{cast.length > 0 && this.renderCast()}
 
 						{videos.length > 0 && this.renderYouTubes()}
 					</div>
