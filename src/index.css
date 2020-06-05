@@ -756,6 +756,14 @@ div.actor {
 	width: 100%;
 }
 
+.actor-name {
+	font-weight: bold;
+}
+
+.actor-character {
+	font-style: italic;
+}
+
 /*
 *************************************
 MEDIA QUERIES

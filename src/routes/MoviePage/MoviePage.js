@@ -70,10 +70,10 @@ export default class MoviePage extends Component {
 							</p>
 						</section>
 					) : (
-						<>
+						<section>
 							<MoviePageItem />
 							<LoadingIndicator />
-						</>
+						</section>
 					)}
 				</main>
 			</>

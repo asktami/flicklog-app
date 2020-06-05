@@ -16,9 +16,9 @@ const Actor = ({ id, name, character, profile_path }) => {
 				<img src={pic} alt={name} />
 			</a>
 			<br />
-			<strong>{name}</strong>
+			<span className="actor-name">{name}</span>
 			<br />
-			<em>{character}</em>
+			<span className="actor-character">{character}</span>
 		</div>
 	);
 };
