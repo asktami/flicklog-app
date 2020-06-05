@@ -83,7 +83,6 @@ export default class WatchListButton extends Component {
 
 	renderWatchListButton = (movie) => {
 		const { loginUserId, watchList } = this.context;
-		const { isClicked } = this.state;
 
 		// find id in watchlist array of movie objects
 		let foundMovie = watchList.filter(
