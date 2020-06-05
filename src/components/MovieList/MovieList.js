@@ -33,6 +33,8 @@ const MovieList = (props) => {
 							showWatchListButton={showWatchListButton}
 						/>
 					);
+				} else {
+					return null;
 				}
 			});
 		} else {
