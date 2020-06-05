@@ -14,8 +14,12 @@ exports[`Actor component renders a Actor by default 1`] = `
     />
   </a>
   <br />
-  <strong />
+  <span
+    className="actor-name"
+  />
   <br />
-  <em />
+  <span
+    className="actor-character"
+  />
 </div>
 `;
