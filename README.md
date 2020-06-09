@@ -67,7 +67,7 @@
 
 ## Hosted on
 
-- Zeit
+- [Vercel (formerly zeit.com)](https://vercel.com/)
 
 ## Setup
 
