@@ -4,8 +4,8 @@
 const prod = {
 	DATASOURCE: `postgresql`,
 	API_KEY: process.env.REACT_APP_API_KEY,
-	AUTH_ENDPOINT: `https://asktami-flicklog-api.herokuapp.com/api`,
-	API_ENDPOINT: `https://asktami-flicklog-api.herokuapp.com/api`,
+	AUTH_ENDPOINT: `https://asktami-cors-anywhere.herokuapp.com/https://asktami-flicklog-api.herokuapp.com/api`,
+	API_ENDPOINT: `https://asktami-cors-anywhere.herokuapp.com/https://asktami-flicklog-api.herokuapp.com/api`,
 	EXTERNAL_ENDPOINT: `https://api.themoviedb.org/3`,
 };
 
