@@ -47,11 +47,23 @@ export default class LoginForm extends Component {
 					<div role="alert">{error && <p className="error">{error}</p>}</div>
 					<div>
 						<label htmlFor="username">Username</label>
-						<input type="text" required name="username" id="username" />
+						<input
+							type="text"
+							required
+							name="username"
+							id="username"
+							autocomplete="username"
+						/>
 					</div>
 					<div className="password">
 						<label htmlFor="password">Password</label>
-						<input required name="password" type="password" id="password" />
+						<input
+							type="password"
+							required
+							name="password"
+							id="password"
+							autocomplete="current-password"
+						/>
 					</div>
 					<div className="btn-container">
 						<button className="btn btn-as-link">Login</button>
