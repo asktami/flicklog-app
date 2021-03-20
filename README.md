@@ -82,7 +82,7 @@
 
    - Prepare the environment file: `cp example.env .env`
    - Replace values in `.env` with your custom values
-   - Replace the value for `API_KEY` with your (TheMovieDb.org)[TheMovieDb.org] API Key
+   - Replace the value for `REACT_APP_API_KEY` with your (TheMovieDb.org)[TheMovieDb.org] API Key
 
 6. Start the app in a web browser: `npm start`
 
