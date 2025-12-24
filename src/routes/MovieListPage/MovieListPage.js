@@ -13,6 +13,7 @@ import { trackPromise } from 'react-promise-tracker';
 import LoadingIndicator from '../../components/LoadingIndicator/LoadingIndicator';
 
 import MovieList from '../../components/MovieList/MovieList';
+import { getErrorMessage } from '../../components/Utils/Utils';
 
 export default class MovieListPage extends Component {
 	static contextType = AppContext;
@@ -100,9 +101,7 @@ export default class MovieListPage extends Component {
 							<p className="error">
 								There was an error, please wait a few minutes and try again.
 								<br />
-								{error.message
-									? error.message
-									: JSON.parse(JSON.stringify(error))}
+							{getErrorMessage(error)}
 							</p>
 						) : (
 							<ul className="grid">

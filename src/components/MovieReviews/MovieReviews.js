@@ -3,6 +3,7 @@ import AppContext from '../../contexts/AppContext';
 import MovieApiService from '../../services/movie-api-service';
 import { Link } from 'react-router-dom';
 import StarRating from '../StarRating/StarRating';
+import { getErrorMessage } from '../Utils/Utils';
 
 export default class MovieReviews extends Component {
 	static contextType = AppContext;
@@ -36,9 +37,7 @@ export default class MovieReviews extends Component {
 						<p className="error">
 							There was an error, please wait a few minutes and try again.
 							<br />
-							{error.message
-								? error.message
-								: JSON.parse(JSON.stringify(error))}
+							{getErrorMessage(error)}
 						</p>
 					) : null}
 

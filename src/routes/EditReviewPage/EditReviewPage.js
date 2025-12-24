@@ -5,6 +5,7 @@ import ValidationError from '../../ValidationError';
 
 import Nav from '../../components/Nav/Nav';
 import BackLink from '../../components/BackLink/BackLink';
+import { getErrorMessage } from '../../components/Utils/Utils';
 
 export default class EditReviewPage extends React.Component {
 	static contextType = AppContext;
@@ -157,9 +158,7 @@ export default class EditReviewPage extends React.Component {
 							<p className="error">
 								There was an error, please wait a few minutes and try again.
 								<br />
-								{error.message
-									? error.message
-									: JSON.parse(JSON.stringify(error))}
+								{getErrorMessage(error)}
 							</p>
 						</section>
 					</main>

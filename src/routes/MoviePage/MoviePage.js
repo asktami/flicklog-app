@@ -10,6 +10,7 @@ import { trackPromise } from 'react-promise-tracker';
 import LoadingIndicator from '../../components/LoadingIndicator/LoadingIndicator';
 
 import MoviePageItem from './MoviePageItem';
+import { getErrorMessage } from '../../components/Utils/Utils';
 
 export default class MoviePage extends Component {
 	static contextType = AppContext;
@@ -32,9 +33,18 @@ export default class MoviePage extends Component {
 					this.context.setMovie(movie);
 
 					// need to save movie.videos.results AND movie.credits.cast separately because when don't is not seen as an array of objects when I try to extract from context's movie object
-					this.context.setVideos(movie.videos.results);
+					// Add safety checks for nested properties
+					this.context.setVideos(
+						movie.videos && movie.videos.results
+							? movie.videos.results
+							: []
+					);
 
-					this.context.setCast(movie.credits.cast);
+					this.context.setCast(
+						movie.credits && movie.credits.cast
+							? movie.credits.cast
+							: []
+					);
 				})
 				.catch(this.context.setError)
 		);
@@ -64,9 +74,7 @@ export default class MoviePage extends Component {
 							<p className="error">
 								There was an error, please wait a few minutes and try again.
 								<br />
-								{error.message
-									? error.message
-									: JSON.parse(JSON.stringify(error))}
+								{getErrorMessage(error)}
 							</p>
 						</section>
 					) : (

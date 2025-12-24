@@ -35,8 +35,7 @@ export default class MoviePageItem extends Component {
 		);
 	};
 
-	renderYouTubes = () => {
-		const { videos } = this.context;
+	renderYouTubes = (videos) => {
 		return (
 			<div>
 				<h4>Videos</h4>
@@ -51,8 +50,7 @@ export default class MoviePageItem extends Component {
 		);
 	};
 
-	renderCast = () => {
-		const { cast } = this.context;
+	renderCast = (cast) => {
 		return (
 			<div>
 				<h4>Top Billed Cast</h4>
@@ -74,6 +72,15 @@ export default class MoviePageItem extends Component {
 
 	renderMovie() {
 		const { movie, cast, videos, loginUserId } = this.context;
+
+		// Check if movie data is loaded (movie is initially an empty array)
+		if (!movie || Array.isArray(movie) || !movie.id) {
+			return null; // Return null while loading
+		}
+
+		// Ensure cast and videos are arrays
+		const safeCast = Array.isArray(cast) ? cast : [];
+		const safeVideos = Array.isArray(videos) ? videos : [];
 
 		// update stored movie.background
 		// let background_test = DEFAULT_PLACEHOLDER_IMAGE;
@@ -137,9 +144,9 @@ export default class MoviePageItem extends Component {
 							) : null}
 						</div>
 
-						{cast.length > 0 && this.renderCast()}
+						{safeCast.length > 0 && this.renderCast(safeCast)}
 
-						{videos.length > 0 && this.renderYouTubes()}
+						{safeVideos.length > 0 && this.renderYouTubes(safeVideos)}
 					</div>
 				</div>
 

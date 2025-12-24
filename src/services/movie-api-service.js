@@ -49,6 +49,13 @@ const MovieApiService = {
 		// unprotected endpoint
 		// will work even when logged in / not
 
+		if (!config.API_KEY) {
+			return Promise.reject({
+				status_message: 'API key is missing. Please check your .env file and restart the development server.',
+				status_code: 401,
+			});
+		}
+
 		const url = `${config.EXTERNAL_ENDPOINT}/movie/${movie_id}?api_key=${config.API_KEY}&language=en-US&append_to_response=videos,credits`;
 
 		return fetch(url, {
